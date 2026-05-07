@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-brand-blue: #2160ae;
+  --color-brand-blue-dark: #1a4a87;
+  --color-brand-green: #7aca55;
+  --color-brand-green-dark: #5fa641;
+  --color-brand-light-blue: #3da9eb;
+  
+  --color-brand-blue-5: rgba(33, 96, 174, 0.05);
+  --color-brand-blue-10: rgba(33, 96, 174, 0.1);
+  --color-brand-blue-20: rgba(33, 96, 174, 0.2);
+  --color-brand-blue-30: rgba(33, 96, 174, 0.3);
+  --color-brand-blue-40: rgba(33, 96, 174, 0.4);
+  
+  --color-brand-blue-dark-10: rgba(26, 74, 135, 0.1);
+  --color-brand-blue-dark-20: rgba(26, 74, 135, 0.2);
+  --color-brand-blue-dark-40: rgba(26, 74, 135, 0.4);
+  --color-brand-blue-dark-60: rgba(26, 74, 135, 0.6);
+  --color-brand-blue-dark-80: rgba(26, 74, 135, 0.8);
+  
+  --color-brand-green-5: rgba(122, 202, 85, 0.05);
+  --color-brand-green-10: rgba(122, 202, 85, 0.1);
+  --color-brand-green-20: rgba(122, 202, 85, 0.2);
+  
+  --color-white: #ffffff;
+  --color-white-5: rgba(255, 255, 255, 0.05);
+  --color-white-10: rgba(255, 255, 255, 0.1);
+  --color-white-20: rgba(255, 255, 255, 0.2);
+  --color-white-30: rgba(255, 255, 255, 0.3);
+  --color-white-40: rgba(255, 255, 255, 0.4);
+  --color-white-50: rgba(255, 255, 255, 0.5);
+  --color-white-60: rgba(255, 255, 255, 0.6);
+  --color-white-70: rgba(255, 255, 255, 0.7);
+  --color-white-80: rgba(255, 255, 255, 0.8);
+  --color-white-90: rgba(255, 255, 255, 0.9);
+  
+  --color-black: #000000;
+  --color-black-5: rgba(0, 0, 0, 0.05);
+  --color-black-10: rgba(0, 0, 0, 0.1);
+  --color-black-20: rgba(0, 0, 0, 0.2);
+  --color-transparent: transparent;
+
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+  
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+}
+
+/* Force standard color space for PDF compatibility */
+@layer base {
+  ::placeholder {
+    color: rgba(156, 163, 175, 0.5) !important;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-to-r {
+    --tw-gradient-position: to right;
+    background-image: linear-gradient(var(--tw-gradient-position), var(--tw-gradient-stops)) !important;
+  }
+  
+  .bg-gradient-to-b {
+    --tw-gradient-position: to bottom;
+    background-image: linear-gradient(var(--tw-gradient-position), var(--tw-gradient-stops)) !important;
+  }
+
+  .shadow-brand-blue-20 {
+    --tw-shadow-color: rgba(33, 96, 174, 0.2) !important;
+  }
+
+  .shadow-brand-blue-30 {
+    --tw-shadow-color: rgba(33, 96, 174, 0.3) !important;
+  }
+}
+
+
+@media print {
+  @page {
+    margin: 1cm;
+    size: auto;
+  }
+  
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background-color: white !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border: 1px solid #e2e8f0 !important;
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+
+  h1, h2, h3, p, span {
+    color: #0f172a !important;
+  }
+
+  .campaign-snapshots h3, 
+  .campaign-snapshots .text-white,
+  .campaign-snapshots .text-brand-green {
+    color: #ffffff !important;
+  }
+
+  .campaign-snapshots .bg-white-5 {
+    background-color: #1e293b !important;
+  }
+
+  svg {
+    max-width: 100% !important;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-brand-blue-dark antialiased;
+  }
+}
+
+.glass-card {
+  @apply bg-white-80 backdrop-blur-md border border-white-20 shadow-xl;
+}
+
+.data-glow {
+  text-shadow: 0 0 20px rgba(33, 96, 174, 0.2);
+}
